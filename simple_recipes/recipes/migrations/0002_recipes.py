@@ -12,8 +12,16 @@ def create_simple_cake_recipe(apps, schema_editor):
     # egg = Ingredient(name="Egg")
     
 
-    Recipe(name="Simple White Cake", description="Easy but delicious cake recipe. Top with your favorite frosting!", 
-           cook_time_minutes=40, serving_size=12, instructions="These are the instructions.").save()
+    Recipe(name="Simple White Cake", description="Easy but delicious cake recipe. Top with your favorite frosting!",
+            cook_time_minutes=40, serving_size=12, instructions="These are the instructions.").save()
+    Recipe(name="Lavacake", description="An easy cake to make for chocolate lovers!", image="images/simple-cake.png",
+        cook_time_minutes=20, serving_size=1, instructions="These are the instructions.").save()
+    
+def remove_recipes(apps, schema_editor):
+    Recipe = apps.get_model('recipes', 'Recipe')
+    for recipe in Recipe.objects.all():
+        recipe.delete()
+
 
 class Migration(migrations.Migration):
 
@@ -22,5 +30,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_simple_cake_recipe),
+        migrations.RunPython(code=create_simple_cake_recipe, reverse_code=remove_recipes),
     ]

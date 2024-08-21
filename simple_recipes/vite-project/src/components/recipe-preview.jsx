@@ -4,13 +4,13 @@ import {useState, useEffect} from 'react';
 import axios from "axios";
 import { API_URL } from "../constants";
 
-function RecipeCard({name, time}) {
+function RecipeCard({name, image, time}) {
     return (
         <div>
             <div className="recipe-preview-box">
                 <img
                     className="recipe-preview-image"
-                    src="/src/assets/images/simple-cake.png"
+                    src={image}
                     alt="Simple white cake"
                 />
                 <div className="recipe-preview-subtitle">
@@ -50,7 +50,7 @@ function RecipeGrid() {
                     {recipes.map((recipe) => {
                         return (
                             <article key={recipe.pk}>
-                                <RecipeCard name={recipe.name} time={recipe.cook_time_minutes} />
+                                <RecipeCard name={recipe.name} image={recipe.image} time={recipe.cook_time_minutes} />
                                 {/* <h2>{recipe.name}</h2>
                                 <span>{recipe.cook_time_minutes}</span> */}
                             </article>
