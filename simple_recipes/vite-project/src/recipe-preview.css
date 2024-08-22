@@ -39,20 +39,22 @@
     /* height: 50px; */
     border-radius: 8px 8px 0px 0px;
 
-    bottom: 100px;
+    bottom: 94px;
 }
 
 .recipe-preview-tag-inner {
     border-radius: 8px 8px 0px 0px;
     width: 100%;
+    height: 100%;
     /* width: fit-content;
     padding: 0px 10px; */
     background-color: purple;
 }
 
-.filter-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
+.add-recipe-button {
     margin: 2vh 0 5vh 0;
+}
+
+.no-padding-button {
+    padding: 0px;
 }

@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 
 import axios from "axios";
 import { API_URL } from "../constants";
+import RecipeModal from './recipe-modal';
 
 function RecipeCard({name, image, time}) {
     return (
@@ -26,6 +27,16 @@ function RecipeCard({name, image, time}) {
 
 function RecipeGrid() {
     const [recipes, setRecipes] = useState([]);
+    const [modal, setModal] = useState(false);
+    const [recipeId, setRecipeId] = useState(null);
+
+    const toggle = () => {
+        setModal(!modal);
+    };
+
+    const handleRecipeId = (id) => {
+        setRecipeId(id);
+    };
   
     useEffect(() => {
       axios.get(API_URL).then((response) => {
@@ -37,46 +48,25 @@ function RecipeGrid() {
 
     return (
         <div>
-            <button>Add Recipe</button>
             <h2>Recipes</h2>
             <hr/>
-            <header className="filter-options">
-                <button>&lt; 20 min</button>
-                <button>30 min - 1 hour</button>
-                <button>&gt; 1 hour</button>
+            <header className="add-recipe-button">
+                <button style={{width: '100%'}}>Add Recipe</button>
             </header>
             <div>
                 <div className="card-wrapper">
                     {recipes.map((recipe) => {
                         return (
                             <article key={recipe.pk}>
-                                <RecipeCard name={recipe.name} image={recipe.image} time={recipe.cook_time_minutes} />
-                                {/* <h2>{recipe.name}</h2>
-                                <span>{recipe.cook_time_minutes}</span> */}
+                                <button onClick={() => {toggle(); handleRecipeId(recipe.pk); }} className="no-padding-button">
+                                    <RecipeCard name={recipe.name} image={recipe.image} time={recipe.cook_time_minutes} />
+                                </button>
                             </article>
                         );
                     })}
-
-                    {/* <article>
-                        <RecipeCard/>
-                    </article>
-                    <article>
-                        <RecipeCard/>
-                    </article>
-                    <article>
-                        <RecipeCard/>
-                    </article>
-                    <article>
-                        <RecipeCard/>
-                    </article>
-                    <article>
-                        <RecipeCard/>
-                    </article>
-                    <article>
-                        <RecipeCard/>
-                    </article> */}
                 </div>
             </div>
+            {modal && <RecipeModal modal={modal} toggle={toggle} recipeId={recipeId} />}
         </div>
     );
 }

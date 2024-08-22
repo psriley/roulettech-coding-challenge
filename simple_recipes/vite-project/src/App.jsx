@@ -7,10 +7,8 @@ import Header from "./components/header";
 import RecipeGrid from './components/recipe-preview';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
+    <div id="main">
       <Header/>
       <RecipeGrid/>
     </div>
