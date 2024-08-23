@@ -1,6 +1,6 @@
 # Simple Recipes
 - Simple website that shows some simple recipes. Clicking on each recipe will show various details including a description, cook time, serving size, ingredients, and instructions! (All recipes gathered from https://publicdomainrecipes.com/)
-- Watch a demo video here! (main github page): [simple-recipes-demo.mp4](https://github.com/psriley/roulettech-coding-challenge/simple-recipes-demo.mp4)
+- Watch a demo video here! (main github page): [simple-recipes-demo.mp4](https://github.com/psriley/roulettech-coding-challenge/raw/main/simple-recipes-demo.mp4)
 
 ### Home Page:
 ![](./simple_recipes/media/images/simple-recipes-home-page.png)
