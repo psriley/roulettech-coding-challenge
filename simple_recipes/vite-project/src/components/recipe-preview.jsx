@@ -50,9 +50,6 @@ function RecipeGrid() {
         <div>
             <h2>Recipes</h2>
             <hr/>
-            <header className="add-recipe-button">
-                <button style={{width: '100%'}}>Add Recipe</button>
-            </header>
             <div>
                 <div className="card-wrapper">
                     {recipes.map((recipe) => {

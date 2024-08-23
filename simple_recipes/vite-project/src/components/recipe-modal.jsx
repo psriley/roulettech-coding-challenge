@@ -67,22 +67,6 @@ function RecipeDetails({recipe}) {
     )
 }
 
-function CreateRecipe() {
-    return (
-        <Form style={{ margin: 25 }}>
-            <FormGroup>
-                <Label for="name">
-                    Name:
-                </Label>
-                <Input
-                    type="text"
-                    name="name"
-                />
-            </FormGroup>
-        </Form>
-    )
-}
-
 function RecipeModal({modal, toggle, recipeId}) {
     const [recipe, setRecipe] = useState(null);
   
@@ -111,7 +95,6 @@ function RecipeModal({modal, toggle, recipeId}) {
         >
             <button onClick={handleCloseModal}>Close Modal</button>
             <RecipeDetails recipe={recipe} />
-            {/* <CreateRecipe/> */}
         </ReactModal>
     )
 }
