@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/recipes/$', views.recipes_list),
-    re_path(r'^api/recipes/([0-9])$', views.recipes_detail),
+    re_path(r'^api/recipes/([0-9]+)$', views.recipes_detail),
 ]
 
 if settings.DEBUG:

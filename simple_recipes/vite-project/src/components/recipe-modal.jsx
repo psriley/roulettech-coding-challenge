@@ -39,7 +39,7 @@ function RecipeDetails({recipe}) {
                         {recipe.ingredients && recipe.ingredients.length > 0 ? (
                             recipe.ingredients.map((ingredient, index) => (
                                 <li key={index}>
-                                    {ingredient.amount} {ingredient.ingredient}
+                                    {ingredient.amount} {ingredient.ingredient.name}
                                 </li>
                             ))
                         ) : (
@@ -93,6 +93,7 @@ function RecipeModal({modal, toggle, recipeId}) {
                     setRecipe(response.data);
                 })
                 .catch((error) => {
+                    console.log(API_URL+`${recipeId}`);
                     console.error("There was an error fetching the recipe data!", error);
                 });
         }
